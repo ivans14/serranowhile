@@ -19,7 +19,7 @@ function Navbar() {
 		<div className='static top-0 bg-background h-[100px] flex justify-between text-foreground w-[100%] p-5'>
 			<div className='flex items-center'>
 				<Image
-					src={'/DIVORCIOS_negro_cut.png'}
+					src={'/DIVORCIOS-negro-cut.PNG'}
 					width={226}
 					height={43}
 					alt={'logo'}
