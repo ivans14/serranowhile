@@ -1,21 +1,73 @@
+'use client';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Check, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
+import { useContext } from 'react';
+import { LanguageContext, Language } from './comps/context';
+
+const translations = {
+	ES: {
+		title: 'Tu divorcio notarial por 595€ por cónyuge',
+		subtitle: 'Rápido, legal y sin complicaciones',
+		description:
+			'En DivorciosBCN.com tramitamos tu divorcio de mutuo acuerdo de forma',
+		agil: 'ágil',
+		profesional: 'profesional',
+		legal: 'completamente legal',
+		timeframe: ', con firma ante notario en menos de',
+		week: '1 semana',
+		checkmarks: [
+			'Atención personalizada',
+			'Seguimiento continuo',
+			'Atención personalizada',
+			'Sin sorpresas: precio cerrado',
+		],
+		discoverButton: 'Descúbrenos',
+		officeLocation: 'Con oficina en',
+		address: 'Avenida Diagonal 449 (Barcelona)',
+		contactText: 'Escríbenos por',
+		whatsapp: 'WhatsApp',
+		or: 'o',
+		callUs: 'llámanos',
+		helpText: '. Estamos aquí para ayudarte',
+	},
+	CAT: {
+		title: 'El teu divorci notarial per 595€ per cònjuge',
+		subtitle: 'Ràpid, legal i sense complicacions',
+		description:
+			'A DivorciosBCN.com tramitem el teu divorci de mutu acord de forma',
+		agil: 'àgil',
+		profesional: 'professional',
+		legal: 'completament legal',
+		timeframe: ', amb signatura davant notari en menys de',
+		week: '1 setmana',
+		checkmarks: [
+			'Atenció personalitzada',
+			'Seguiment continu',
+			'Atenció personalitzada',
+			'Sense sorpreses: preu tancat',
+		],
+		discoverButton: 'Descobreix-nos',
+		officeLocation: 'Amb oficina a',
+		address: 'Avinguda Diagonal 449 (Barcelona)',
+		contactText: 'Escriu-nos per',
+		whatsapp: 'WhatsApp',
+		or: 'o',
+		callUs: "truca'ns",
+		helpText: '. Som aquí per ajudar-te',
+	},
+};
 
 export default function Home() {
-	const checkmarkText = [
-		'Atención personalizada',
-		'Seguimiento continuo',
-		'Atención personalizada',
-		'Sin sorpresas: precio cerrado',
-	];
+	const { language } = useContext(LanguageContext);
+	const t = translations[language as Language];
 
 	return (
 		<div className='flex-1 px-20 py-12 flex flex-col items-center text-center gap-12'>
 			<div className='flex flex-col gap-5'>
-				<h1>Tu divorcio notarial por 595€ por cónyuge</h1>
-				<h2>Rápido, legal y sin complicaciones</h2>
+				<h1>{t.title}</h1>
+				<h2>{t.subtitle}</h2>
 				<Separator />
 			</div>
 			<Image
@@ -26,18 +78,19 @@ export default function Home() {
 			/>
 			<div className='flex flex-col gap-12 items-center'>
 				<p className='max-w-[800px]'>
-					En DivorciosBCN.com tramitamos tu divorcio de mutuo acuerdo de forma
-					<span className='font-bold text-text-secondary'> ágil</span>,
-					<span className='font-bold text-text-secondary'> profesional</span> y{' '}
+					{t.description}
+					<span className='font-bold text-text-secondary'> {t.agil}</span>,
 					<span className='font-bold text-text-secondary'>
 						{' '}
-						completamente legal
+						{t.profesional}
 					</span>{' '}
-					, con firma ante notario en menos de{' '}
-					<span className='font-bold text-text-secondary'> 1 semana</span>.
+					{t.or}{' '}
+					<span className='font-bold text-text-secondary'> {t.legal}</span>
+					{t.timeframe}{' '}
+					<span className='font-bold text-text-secondary'> {t.week}</span>.
 				</p>
 				<div className='flex flex-col gap-2 items-start'>
-					{checkmarkText.map((text, index) => (
+					{t.checkmarks.map((text, index) => (
 						<div className='flex items-center gap-2' key={index}>
 							<Check className='text-text-secondary' />
 							<p>{text}</p>
@@ -45,25 +98,23 @@ export default function Home() {
 					))}
 				</div>
 			</div>
-			<Button variant={'outline'}>Descúbrenos</Button>
+			<Button variant={'outline'}>{t.discoverButton}</Button>
 			<div className='flex flex-col items-start gap-5'>
 				<div className='flex items-center gap-2'>
 					<MapPin className='text-text-secondary' />
 					<p>
-						Con oficina en{' '}
-						<span className='font-bold text-text-secondary'>
-							{' '}
-							Avenida Diagonal 449 (Barcelona)
-						</span>
+						{t.officeLocation}{' '}
+						<span className='font-bold text-text-secondary'> {t.address}</span>
 					</p>
 				</div>
 				<div className='flex items-center gap-2'>
 					<Phone className='text-text-secondary' />
 					<p>
-						Escríbenos por{' '}
-						<span className='underline text-text-secondary'>WhatsApp</span> o{' '}
-						<span className='underline text-text-secondary'>llámanos</span>.
-						Estamos aquí para ayudarte
+						{t.contactText}{' '}
+						<span className='underline text-text-secondary'>{t.whatsapp}</span>{' '}
+						{t.or}{' '}
+						<span className='underline text-text-secondary'>{t.callUs}</span>
+						{t.helpText}
 					</p>
 				</div>
 			</div>

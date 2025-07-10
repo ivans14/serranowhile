@@ -3,6 +3,7 @@ import { Montserrat } from 'next/font/google';
 import './globals.css';
 import Navbar from './comps/Navbar';
 import Footer from './comps/Footer';
+import ContextProvider from './comps/context';
 
 const montserrat = Montserrat({
 	subsets: ['latin'],
@@ -23,9 +24,12 @@ export default function RootLayout({
 			<body
 				className={`${montserrat.className}  antialiased flex flex-col min-h-[100vh]`}
 			>
-				<Navbar />
-				{children}
-				<Footer />
+				<ContextProvider>
+					<Navbar />
+					{children}
+
+					<Footer />
+				</ContextProvider>
 			</body>
 		</html>
 	);
