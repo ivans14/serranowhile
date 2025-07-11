@@ -116,7 +116,7 @@ export default function Contacto() {
 	};
 
 	return (
-		<div className='flex-1 max-w-[1000px] px-20 pt-12 pb-20 flex items-start text-left gap-10'>
+		<div className='flex-1 max-w-[1200px] px-20 pt-12 pb-20 flex items-start text-left gap-10'>
 			<div className='flex flex-col gap-10 flex-2'>
 				{t.details.title}
 				{t.details.phone}
