@@ -39,7 +39,7 @@ function Navbar() {
 	const { language, setLanguage } = useContext(LanguageContext);
 	return (
 		<div className='static top-0 bg-background h-[100px] flex justify-between text-foreground w-[100%] p-5'>
-			<div className='flex items-center'>
+			<div className='flex items-center hover:cursor-pointer'>
 				<Image
 					src={'/DIVORCIOS-negro-cut.PNG'}
 					width={226}

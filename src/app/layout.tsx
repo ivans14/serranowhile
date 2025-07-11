@@ -22,7 +22,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`${montserrat.className}  antialiased flex flex-col min-h-[100vh]`}
+				className={`${montserrat.className}  antialiased flex items-center flex-col min-h-[100vh]`}
 			>
 				<ContextProvider>
 					<Navbar />

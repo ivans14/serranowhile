@@ -64,7 +64,7 @@ export default function Home() {
 	const t = translations[language as Language];
 
 	return (
-		<div className='flex-1 px-20 py-12 flex flex-col items-center text-center gap-12'>
+		<div className='flex-1 max-w-[1000px] px-20 py-12 flex flex-col items-center text-center gap-12'>
 			<div className='flex flex-col gap-5'>
 				<h1>{t.title}</h1>
 				<h2>{t.subtitle}</h2>
