@@ -66,7 +66,7 @@ export default function Home() {
 	const router = useRouter();
 
 	return (
-		<div className='flex-1 max-w-[1000px] py-5 px-10 md:px-20 md:py-12 flex flex-col items-center text-center gap-12'>
+		<div className='flex-1 max-w-[1000px] py-5 px-10 md:px-20 md:py-12 !pb-20 flex flex-col items-center text-center gap-12'>
 			<div className='flex flex-col gap-5'>
 				<h1>{t.title}</h1>
 				<h2>{t.subtitle}</h2>
