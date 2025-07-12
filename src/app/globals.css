@@ -121,7 +121,7 @@ h1 {
 	@apply text-2xl sm:text-[24px] md:text-[32px] lg:text-[40px] font-bold;
 }
 h2 {
-	@apply text-[24px] sm:text-[18px] font-semibold;
+	@apply text-[16px] md:text-[18px] font-semibold;
 }
 
 @layer base {

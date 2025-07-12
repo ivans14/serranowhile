@@ -108,9 +108,9 @@ export default function FAQ() {
 	const t = translations[language as Language];
 
 	return (
-		<div className='flex-1 w-[100%] max-w-[1000px] px-20 pt-12 pb-20 flex flex-col items-center text-center gap-15'>
+		<div className='flex-1 w-[100%] max-w-[1000px] p-5 px-10 md:px-20 md:pt-12 pb-20 flex flex-col items-center text-center gap-10 md:gap-15'>
 			<div className='flex flex-col gap-5'>{t.title}</div>
-			<div className='flex flex-col w-[100%] items-start gap-10'>
+			<div className='flex flex-col w-[100%] items-start gap-5 md:gap-10'>
 				{t.Questions.map((question, index) => (
 					<Accordion className='w-[100%]' key={index} type='single' collapsible>
 						<AccordionItem value='item-1'>

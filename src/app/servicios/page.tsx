@@ -73,7 +73,7 @@ export default function Servicios() {
 	const t = translations[language as Language];
 
 	return (
-		<div className='flex-1 max-w-[1000px] px-20 pt-12 pb-20 flex flex-col items-center text-center gap-15'>
+		<div className='flex-1 max-w-[1000px] p-5 px-10 md:px-20 md:pt-12 pb-20 flex flex-col items-center text-center gap-10 md:gap-15'>
 			<div className='flex flex-col gap-5'>
 				<h1>{t.title}</h1>
 			</div>
@@ -91,7 +91,7 @@ export default function Servicios() {
 					alt='pic-divorce-1'
 					width={379}
 					height={253}
-					className='h-[253px] w-[379px] object-cover flex-shrink-0'
+					className='hidden md:flex h-[253px] w-[379px] object-cover flex-shrink-0'
 					src='/pexels-karolina-grabowska-7876035.jpg'
 				/>
 			</div>
@@ -109,7 +109,7 @@ export default function Servicios() {
 					alt='pic-divorce-2'
 					width={379}
 					height={253}
-					className='h-[253px] w-[379px] object-cover flex-shrink-0'
+					className='hidden md:flex h-[253px] w-[379px] object-cover flex-shrink-0'
 					src='/pexels-karolina-grabowska-7876036.jpg'
 				/>
 			</div>

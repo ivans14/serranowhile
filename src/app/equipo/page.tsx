@@ -121,7 +121,7 @@ export default function Equipo() {
 	const t = translations[language as Language];
 
 	return (
-		<div className='flex-1 max-w-[1000px] px-20 pt-12 pb-20 flex flex-col items-center text-center gap-15'>
+		<div className='flex-1 max-w-[1000px] p-5 px-10 md:px-20 md:pt-12 pb-20 flex flex-col items-center text-center gap-15'>
 			<div className='flex flex-col gap-5'>
 				<h1>{t.title}</h1>
 			</div>
@@ -138,13 +138,13 @@ export default function Equipo() {
 					{t.checkmarks.map((text, index) => (
 						<div className='flex items-center gap-2' key={index}>
 							<Check className='text-text-secondary' />
-							<p>{text}</p>
+							<p className='text-left'>{text}</p>
 						</div>
 					))}
 				</div>
 			</div>
 			<Button variant='outline'>{t.button}</Button>
-			<div className='flex items-start gap-5'>
+			<div className='flex flex-col md:flex-row items-start gap-5'>
 				<p className='flex-1 text-left'>{t.officeLocation}</p>
 				<p className='flex-1 text-left'>{t.offering}</p>
 			</div>

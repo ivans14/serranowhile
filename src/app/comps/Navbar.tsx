@@ -14,6 +14,8 @@ import {
 } from '@/components/ui/navigation-menu';
 import { Globe } from 'lucide-react';
 import { Language, LanguageContext } from './context';
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import { AppSidebar } from './Sidebar';
 
 const translations = {
 	ES: {
@@ -39,7 +41,7 @@ function Navbar() {
 	const { language, setLanguage } = useContext(LanguageContext);
 	return (
 		<div className='static top-0 bg-background h-[100px] flex justify-between text-foreground w-[100%] p-5'>
-			<div className='flex items-center hover:cursor-pointer'>
+			<div className='flex md:items-center items-baseline hover:cursor-pointer'>
 				<Image
 					src={'/DIVORCIOS-negro-cut.PNG'}
 					width={226}
@@ -48,7 +50,7 @@ function Navbar() {
 					onClick={() => router.push('/')}
 				/>
 			</div>
-			<div className='flex flex-row items-center gap-5'>
+			<div className='md:flex hidden flex-row items-center gap-5'>
 				<Link href='/equipo'>{translations[language as Language].equipo}</Link>
 				<Link href='/servicios'>
 					{translations[language as Language].servicios}
@@ -80,6 +82,12 @@ function Navbar() {
 						</NavigationMenuItem>
 					</NavigationMenuList>
 				</NavigationMenu>
+			</div>
+			<div className='right-0 md:hidden flex'>
+				<SidebarProvider>
+					<AppSidebar />
+					<SidebarTrigger />
+				</SidebarProvider>
 			</div>
 		</div>
 	);

@@ -13,42 +13,52 @@ import { Checkbox } from '@/components/ui/checkbox';
 const translations = {
 	ES: {
 		details: {
-			title: <h2>Detalles de contacto</h2>,
+			title: (
+				<h2 className='text-text-secondary w-full text-center md:text-left'>
+					Detalles de contacto
+				</h2>
+			),
 			phone: (
-				<div className='flex gap-2'>
+				<div className='flex gap-2  md:justify-start'>
 					<Phone />
 					<p>6XX XXX XXX</p>
 				</div>
 			),
 			whatsapp: (
-				<div className='flex gap-2'>
+				<div className='flex gap-2  md:justify-start'>
 					<WhatsApp />
 					<p>6XX XXX XXX</p>
 				</div>
 			),
 			email: (
-				<div className='flex gap-2'>
+				<div className='flex gap-2  md:justify-start'>
 					<Mail />
 					<p>xxx@gmail.com</p>
 				</div>
 			),
 			location: (
-				<div className='flex gap-2'>
+				<div className='flex gap-2  md:justify-start'>
 					<MapPin />
-					<p>Avenida Diagonal 449, Barcelona</p>
+					<p className='text-left'>Avenida Diagonal 449, Barcelona</p>
 				</div>
 			),
 		},
-		formTitle: <h2>Escríbenos</h2>,
+		formTitle: (
+			<h2 className='text-text-secondary text-center md:text-left'>
+				Escríbenos
+			</h2>
+		),
 		formDesc: (
-			<p>Rellena el siguiente formulario y te contactaremos lo antes posible</p>
+			<p className='text-left'>
+				Rellena el siguiente formulario y te contactaremos lo antes posible
+			</p>
 		),
 		formParams: ['Nombre', 'Apellidos', 'Email', 'Teléfono'],
 		message: 'Mensaje',
 		check: (
-			<p className='text-sm'>
+			<p className='text-sm' style={{ color: 'var(--text-secondary)' }}>
 				He leído y acepto la{' '}
-				<span className='underline hover:cursor-pointer'>
+				<span className='underline hover:cursor-pointer text-primary'>
 					Política de Privacidad
 				</span>{' '}
 				de Serrano While.
@@ -59,48 +69,51 @@ const translations = {
 
 	CAT: {
 		details: {
-			title: <h2>Detalls de contacte</h2>,
+			title: (
+				<h2 className='w-full text-center md:text-left'>Detalls de contacte</h2>
+			),
 			phone: (
-				<div className='flex gap-2'>
+				<div className='flex gap-2  md:justify-start'>
 					<Phone />
 					<p>6XX XXX XXX</p>
 				</div>
 			),
 			whatsapp: (
-				<div className='flex gap-2'>
+				<div className='flex gap-2  md:justify-start'>
 					<WhatsApp />
 					<p>6XX XXX XXX</p>
 				</div>
 			),
 			email: (
-				<div className='flex gap-2'>
+				<div className='flex gap-2  md:justify-start'>
 					<Mail />
 					<p>xxx@gmail.com</p>
 				</div>
 			),
 			location: (
-				<div className='flex gap-2'>
+				<div className='flex gap-2  md:justify-start'>
 					<MapPin />
 					<p>Avinguda Diagonal 449, Barcelona</p>
 				</div>
 			),
 		},
-		formTitle: <h2>Escriu-nos</h2>,
+		formTitle: <h2 className='text-center md:text-left'>Escriu-nos</h2>,
 		formDesc: (
-			<p>Omple el següent formulari i et contactarem el més aviat possible</p>
+			<p className='text-left'>
+				Omple el següent formulari i et contactarem el més aviat possible
+			</p>
 		),
 		formParams: ['Nom', 'Cognoms', 'Email', 'Telèfon'],
 		message: 'Missatge',
 		check: (
-			<p className='text-sm'>
+			<p className='text-sm' style={{ color: 'var(--text-secondary)' }}>
 				He llegit i accepto la{' '}
-				<span className='underline hover:cursor-pointer'>
+				<span className='underline hover:cursor-pointer text-primary'>
 					Política de Privacitat
 				</span>{' '}
 				de Serrano While.
 			</p>
 		),
-
 		submitButton: 'Enviar',
 	},
 };
@@ -116,32 +129,40 @@ export default function Contacto() {
 	};
 
 	return (
-		<div className='flex-1 max-w-[1200px] px-20 pt-12 pb-20 flex items-start text-left gap-10'>
-			<div className='flex flex-col gap-10 flex-2'>
+		<div className='flex-1 flex-col md:flex-row max-w-[1200px] p-5 px-10 md:px-20 md:pt-12 md:pb-20 flex items-start text-center md:text-left gap-10'>
+			<div className='flex flex-col gap-10 flex-2 w-full'>
 				{t.details.title}
 				{t.details.phone}
 				{t.details.whatsapp}
 				{t.details.email}
 				{t.details.location}
 			</div>
+
+			<Separator
+				orientation='horizontal'
+				className='bg-border w-full h-px block md:hidden'
+			/>
 			<Separator
 				orientation='vertical'
-				className='bg-border self-stretch w-px'
+				className='bg-border self-stretch w-px hidden md:block'
 			/>
 
-			<div className='flex flex-col gap-10 flex-3'>
+			<div className='flex flex-col gap-10 flex-3 w-full'>
 				<div className='flex flex-col gap-5'>
 					{t.formTitle}
 					{t.formDesc}
 				</div>
 				<form onSubmit={handleSubmit} className='flex flex-col gap-5'>
 					{t.formParams.map((param, i) => (
-						<div key={i} className='grid w-full max-w-sm items-center gap-3'>
+						<div
+							key={i}
+							className='grid w-full max-w-full md:max-w-sm items-center gap-3'
+						>
 							<Label htmlFor={param}>{param}</Label>
 							<Input id={param} name={param} placeholder={param} required />
 						</div>
 					))}
-					<div className='grid w-full max-w-sm items-center gap-3'>
+					<div className='grid w-full max-w-full md:max-w-sm items-center gap-3'>
 						<Label htmlFor={t.message}>{t.message}</Label>
 						<Textarea
 							id={t.message}
@@ -151,11 +172,11 @@ export default function Contacto() {
 							required
 						/>
 					</div>
-					<div className='flex gap-2 items-center'>
+					<div className='flex gap-2 items-center text-left'>
 						<Checkbox required />
 						{t.check}
 					</div>
-					<div className='w-full max-w-sm flex justify-center'>
+					<div className='w-full flex justify-center'>
 						<Button variant={'outline'} type='submit'>
 							{t.submitButton}
 						</Button>
