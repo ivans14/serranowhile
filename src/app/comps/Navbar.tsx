@@ -19,7 +19,7 @@ import { AppSidebar } from './Sidebar';
 
 const translations = {
 	ES: {
-		equipo: 'Equipo',
+		equipo: 'Quiénes somos',
 		servicios: 'Servicios',
 		faq: 'FAQ',
 		contacto: 'Contacto',
@@ -27,7 +27,7 @@ const translations = {
 		catala: 'Català',
 	},
 	CAT: {
-		equipo: 'Equip',
+		equipo: 'Qui som',
 		servicios: 'Serveis',
 		faq: 'FAQ',
 		contacto: 'Contacte',

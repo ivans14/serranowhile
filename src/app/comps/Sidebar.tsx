@@ -14,7 +14,7 @@ import { LanguageContext, Language } from './context';
 const items = [
 	{
 		title: { ES: 'Equipo', CAT: 'Equip' },
-		url: '/equipo',
+		url: '/Quiénes somos',
 	},
 	{
 		title: { ES: 'Servicios', CAT: 'Serveis' },

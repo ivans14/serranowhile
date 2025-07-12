@@ -144,7 +144,7 @@ export default function Contacto() {
 	};
 
 	return (
-		<div className='relative flex-1 flex-col md:flex-row max-w-[1200px] p-5 px-10 md:px-20 md:pt-12 md:pb-20 flex items-start text-center md:text-left gap-10'>
+		<div className='relative flex-1 flex-col md:flex-row max-w-[1200px] p-5 px-10 md:px-20 md:pt-12 pb-20 flex items-start text-center md:text-left gap-10'>
 			<div className='flex flex-col gap-10 flex-2 w-full'>
 				{t.details.title}
 				{t.details.phone}
