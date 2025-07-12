@@ -22,11 +22,11 @@ function Footer() {
 	return (
 		<div className='relative text-xs md:text-base bottom-0 bg-foreground flex justify-center text-background w-[100%] p-10'>
 			<div className='flex justify-center items-center gap-5 text-center'>
-				<p>{t.contact}</p>
+				<p className='flex-1'>{t.contact}</p>
 				<Separator orientation='vertical' />
-				<p>{t.legal}</p>
+				<p className='flex-1'>{t.legal}</p>
 				<Separator orientation='vertical' />
-				<p>{t.privacy}</p>
+				<p className='flex-1'>{t.privacy}</p>
 			</div>
 		</div>
 	);
