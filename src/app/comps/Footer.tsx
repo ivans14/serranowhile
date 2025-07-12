@@ -20,7 +20,7 @@ function Footer() {
 	const { language } = useContext(LanguageContext);
 	const t = translations[language as Language];
 	return (
-		<div className='relative text-xs md:text-md bottom-0 bg-foreground flex justify-center text-background w-[100%] p-10'>
+		<div className='relative text-xs md:text-base bottom-0 bg-foreground flex justify-center text-background w-[100%] p-10'>
 			<div className='flex justify-center items-center gap-5'>
 				<p>{t.contact}</p>
 				<Separator orientation='vertical' />
