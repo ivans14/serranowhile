@@ -5,6 +5,7 @@ import { Check, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 import { useContext } from 'react';
 import { LanguageContext, Language } from './comps/context';
+import { useRouter } from 'next/navigation';
 
 const translations = {
 	ES: {
@@ -62,6 +63,7 @@ const translations = {
 export default function Home() {
 	const { language } = useContext(LanguageContext);
 	const t = translations[language as Language];
+	const router = useRouter();
 
 	return (
 		<div className='flex-1 max-w-[1000px] py-5 px-10 md:px-20 md:py-12 flex flex-col items-center text-center gap-12'>
@@ -98,7 +100,9 @@ export default function Home() {
 					))}
 				</div>
 			</div>
-			<Button variant={'outline'}>{t.discoverButton}</Button>
+			<Button variant={'outline'} onClick={() => router.push('/equipo')}>
+				{t.discoverButton}
+			</Button>
 			<div className='flex flex-col items-start gap-5'>
 				<div className='flex text-left items-center gap-2'>
 					<MapPin className='text-text-secondary' />

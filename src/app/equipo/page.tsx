@@ -4,6 +4,7 @@ import { Check } from 'lucide-react';
 import Image from 'next/image';
 import { useContext } from 'react';
 import { Language, LanguageContext } from '../comps/context';
+import { useRouter } from 'next/navigation';
 
 const translations = {
 	ES: {
@@ -119,6 +120,7 @@ const translations = {
 export default function Equipo() {
 	const { language } = useContext(LanguageContext);
 	const t = translations[language as Language];
+	const router = useRouter();
 
 	return (
 		<div className='flex-1 max-w-[1000px] p-5 px-10 md:px-20 md:pt-12 pb-20 flex flex-col items-center text-center gap-15'>
@@ -143,7 +145,9 @@ export default function Equipo() {
 					))}
 				</div>
 			</div>
-			<Button variant='outline'>{t.button}</Button>
+			<Button variant={'outline'} onClick={() => router.push('/servicios')}>
+				{t.button}
+			</Button>
 			<div className='flex flex-col md:flex-row items-start gap-5'>
 				<p className='flex-1 text-left'>{t.officeLocation}</p>
 				<p className='flex-1 text-left'>{t.offering}</p>

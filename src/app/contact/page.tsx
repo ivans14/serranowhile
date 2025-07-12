@@ -1,7 +1,14 @@
 'use client';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Language, LanguageContext } from '../comps/context';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import {
+	CheckCircle2Icon,
+	X,
+	Mail,
+	MapPin,
+	Phone,
+	CircleX,
+} from 'lucide-react';
 import { WhatsApp } from '@mui/icons-material';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -9,6 +16,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@radix-ui/react-separator';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Alert, AlertTitle } from '@/components/ui/alert';
 
 const translations = {
 	ES: {
@@ -121,15 +129,22 @@ const translations = {
 export default function Contacto() {
 	const { language } = useContext(LanguageContext);
 	const t = translations[language as Language];
+	const [alertVisible, setAlertVisible] = useState(false);
+	const [alertErrorVisible, setAlertErrorVisible] = useState(false);
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		// Handle form submission here
-		console.log('Form submitted');
+		try {
+			e.preventDefault();
+			// Handle form submission here
+			console.log('Form submitted');
+			setAlertVisible(true);
+		} catch {
+			setAlertErrorVisible(true);
+		}
 	};
 
 	return (
-		<div className='flex-1 flex-col md:flex-row max-w-[1200px] p-5 px-10 md:px-20 md:pt-12 md:pb-20 flex items-start text-center md:text-left gap-10'>
+		<div className='relative flex-1 flex-col md:flex-row max-w-[1200px] p-5 px-10 md:px-20 md:pt-12 md:pb-20 flex items-start text-center md:text-left gap-10'>
 			<div className='flex flex-col gap-10 flex-2 w-full'>
 				{t.details.title}
 				{t.details.phone}
@@ -183,6 +198,41 @@ export default function Contacto() {
 					</div>
 				</form>
 			</div>
+			{alertVisible ? (
+				<div className='absolute bottom-2 left-0 w-full flex justify-center'>
+					<Alert variant='default' className='w-fit flex gap-2 bg-green-100'>
+						<CheckCircle2Icon color='green' />
+
+						<AlertTitle>
+							{language == 'ES'
+								? 'Tu mensaje se ha enviado correctamente'
+								: "El teu missatge s{'}ha enviat correctament"}
+						</AlertTitle>
+						<X
+							className='hover:cursor-pointer'
+							onClick={() => setAlertVisible(false)}
+						/>
+					</Alert>
+				</div>
+			) : null}
+			{alertErrorVisible ? (
+				<div className='absolute bottom-2 left-0 w-full flex justify-center'>
+					<Alert variant='default' className='w-fit flex gap-2 bg-red-100'>
+						<CircleX color='red' />
+
+						<AlertTitle>
+							{' '}
+							{language == 'ES'
+								? 'Tu mensaje no se ha podido enviar'
+								: "El teu missatge no s{'}ha pogut enviar"}
+						</AlertTitle>
+						<X
+							className='hover:cursor-pointer'
+							onClick={() => setAlertVisible(false)}
+						/>
+					</Alert>
+				</div>
+			) : null}
 		</div>
 	);
 }
