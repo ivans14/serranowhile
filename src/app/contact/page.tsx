@@ -1,5 +1,5 @@
 'use client';
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { Language, LanguageContext } from '../comps/context';
 import {
 	CheckCircle2Icon,
@@ -8,6 +8,7 @@ import {
 	MapPin,
 	Phone,
 	CircleX,
+	Loader2,
 } from 'lucide-react';
 import { WhatsApp } from '@mui/icons-material';
 import { Input } from '@/components/ui/input';
@@ -61,7 +62,12 @@ const translations = {
 				Rellena el siguiente formulario y te contactaremos lo antes posible
 			</p>
 		),
-		formParams: ['Nombre', 'Apellidos', 'Email', 'Teléfono'],
+		formParams: [
+			{ id: 'name', name: 'Nombre' },
+			{ id: 'surname', name: 'Apellidos' },
+			{ id: 'email', name: 'Email' },
+			{ id: 'phone', name: 'Teléfono' },
+		],
 		message: 'Mensaje',
 		check: (
 			<p className='text-sm' style={{ color: 'var(--text-secondary)' }}>
@@ -111,7 +117,12 @@ const translations = {
 				Omple el següent formulari i et contactarem el més aviat possible
 			</p>
 		),
-		formParams: ['Nom', 'Cognoms', 'Email', 'Telèfon'],
+		formParams: [
+			{ id: 'name', name: 'Nom' },
+			{ id: 'surname', name: 'Cognoms' },
+			{ id: 'email', name: 'Email' },
+			{ id: 'phone', name: 'Telèfon' },
+		],
 		message: 'Missatge',
 		check: (
 			<p className='text-sm' style={{ color: 'var(--text-secondary)' }}>
@@ -131,14 +142,48 @@ export default function Contacto() {
 	const t = translations[language as Language];
 	const [alertVisible, setAlertVisible] = useState(false);
 	const [alertErrorVisible, setAlertErrorVisible] = useState(false);
+	const [errorMessage, setErrorMessage] = useState('');
+	const [loadingSend, setLoadingSend] = useState(false);
+	const formRef = useRef<HTMLFormElement>(null);
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	const Icons = {
+		spinner: Loader2,
+	};
+
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		try {
 			e.preventDefault();
-			// Handle form submission here
-			console.log('Form submitted');
+			setLoadingSend(true);
+
+			// Get form data
+			const formData = new FormData(e.currentTarget);
+			const formObject = Object.fromEntries(formData.entries());
+
+			formObject['language'] = language;
+
+			// Send form data as JSON
+			const res = await fetch('api/mail/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formObject),
+			});
+
+			if (!res.ok) {
+				const errorData = await res.json();
+				setErrorMessage(errorData.message);
+				throw new Error(`HTTP error! status: ${res.status}`);
+			}
+
+			console.log('Form submitted successfully');
 			setAlertVisible(true);
-		} catch {
+
+			if (formRef.current) {
+				formRef.current.reset();
+			}
+		} catch (error) {
+			console.error('Error submitting form:', error);
 			setAlertErrorVisible(true);
 		}
 	};
@@ -167,21 +212,30 @@ export default function Contacto() {
 					{t.formTitle}
 					{t.formDesc}
 				</div>
-				<form onSubmit={handleSubmit} className='flex flex-col gap-5'>
+				<form
+					ref={formRef}
+					onSubmit={handleSubmit}
+					className='flex flex-col gap-5'
+				>
 					{t.formParams.map((param, i) => (
 						<div
 							key={i}
 							className='grid w-full max-w-full md:max-w-sm items-center gap-3'
 						>
-							<Label htmlFor={param}>{param}</Label>
-							<Input id={param} name={param} placeholder={param} required />
+							<Label htmlFor={param.name}>{param.name}</Label>
+							<Input
+								id={param.id}
+								name={param.id}
+								placeholder={param.name}
+								required
+							/>
 						</div>
 					))}
 					<div className='grid w-full max-w-full md:max-w-sm items-center gap-3'>
 						<Label htmlFor={t.message}>{t.message}</Label>
 						<Textarea
 							id={t.message}
-							name={t.message}
+							name={'message'}
 							placeholder={t.message}
 							rows={4}
 							required
@@ -192,8 +246,17 @@ export default function Contacto() {
 						{t.check}
 					</div>
 					<div className='w-full flex justify-center'>
-						<Button variant={'outline'} type='submit'>
-							{t.submitButton}
+						<Button
+							variant={'outline'}
+							type='submit'
+							className='hover:cursor-pointer w-[80px]'
+							disabled={loadingSend}
+						>
+							{!loadingSend ? (
+								t.submitButton
+							) : (
+								<Icons.spinner className='h-4 w-4 animate-spin' />
+							)}
 						</Button>
 					</div>
 				</form>
@@ -206,7 +269,7 @@ export default function Contacto() {
 						<AlertTitle>
 							{language == 'ES'
 								? 'Tu mensaje se ha enviado correctamente'
-								: "El teu missatge s{'}ha enviat correctament"}
+								: "El teu missatge s'ha enviat correctament"}
 						</AlertTitle>
 						<X
 							className='hover:cursor-pointer'
@@ -220,15 +283,10 @@ export default function Contacto() {
 					<Alert variant='default' className='w-fit flex gap-2 bg-red-100'>
 						<CircleX color='red' />
 
-						<AlertTitle>
-							{' '}
-							{language == 'ES'
-								? 'Tu mensaje no se ha podido enviar'
-								: "El teu missatge no s{'}ha pogut enviar"}
-						</AlertTitle>
+						<AlertTitle> {errorMessage}</AlertTitle>
 						<X
 							className='hover:cursor-pointer'
-							onClick={() => setAlertVisible(false)}
+							onClick={() => setAlertErrorVisible(false)}
 						/>
 					</Alert>
 				</div>
