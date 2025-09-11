@@ -1,35 +1,35 @@
-'use client';
-import { Separator } from '@/components/ui/separator';
-import React, { useContext } from 'react';
-import { LanguageContext, Language } from './context';
+"use client";
+import { Separator } from "@/components/ui/separator";
+import React, { useContext } from "react";
+import { LanguageContext, Language } from "./context";
 
 const translations = {
-	ES: {
-		contact: 'Contacto',
-		legal: 'Aviso legal',
-		privacy: 'Politica de privacidad',
-	},
-	CAT: {
-		contact: 'Contacte',
-		legal: 'Avís legal',
-		privacy: 'Politica de privacitat',
-	},
+  ES: {
+    contact: "Contacto",
+    legal: "Aviso legal",
+    privacy: "Politica de privacidad",
+  },
+  CAT: {
+    contact: "Contacte",
+    legal: "Avís legal",
+    privacy: "Politica de privacitat",
+  },
 };
 
 function Footer() {
-	const { language } = useContext(LanguageContext);
-	const t = translations[language as Language];
-	return (
-		<div className='relative text-xs md:text-base bottom-0 bg-foreground flex justify-center text-background w-[100%] p-10'>
-			<div className='flex justify-center items-center gap-5 text-center'>
-				<p className='flex-1'>{t.contact}</p>
-				<Separator orientation='vertical' />
-				<p className='flex-1'>{t.legal}</p>
-				<Separator orientation='vertical' />
-				<p className='flex-1'>{t.privacy}</p>
-			</div>
-		</div>
-	);
+  const { language } = useContext(LanguageContext);
+  const t = translations[language as Language];
+  return (
+    <div className="relative text-xs md:text-base bottom-0 bg-text-secondary flex justify-center text-background w-[100%] p-10">
+      <div className="flex justify-center items-center gap-5 text-center">
+        <p className="flex-1">{t.contact}</p>
+        <Separator orientation="vertical" />
+        <p className="flex-1">{t.legal}</p>
+        <Separator orientation="vertical" />
+        <p className="flex-1">{t.privacy}</p>
+      </div>
+    </div>
+  );
 }
 
 export default Footer;

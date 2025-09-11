@@ -1,127 +1,73 @@
-'use client';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import { Check, MapPin, Phone } from 'lucide-react';
-import Image from 'next/image';
-import { useContext } from 'react';
-import { LanguageContext, Language } from './comps/context';
-import { useRouter } from 'next/navigation';
+"use client";
+import { useContext } from "react";
+import { LanguageContext, Language } from "./comps/context";
+import { useRouter } from "next/navigation";
+import Card from "@mui/material/Card";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 const translations = {
-	ES: {
-		title: 'Tu divorcio notarial por 595€ por cónyuge',
-		subtitle: 'Rápido, legal y sin complicaciones',
-		description:
-			'En DivorciosBCN.com tramitamos tu divorcio de mutuo acuerdo de forma',
-		agil: 'ágil',
-		profesional: 'profesional',
-		legal: 'completamente legal',
-		timeframe: ', con firma ante notario en menos de',
-		week: '1 semana',
-		checkmarks: [
-			'Atención personalizada',
-			'Seguimiento continuo',
-			'Atención personalizada',
-			'Sin sorpresas: precio cerrado',
-		],
-		discoverButton: 'Descúbrenos',
-		officeLocation: 'Con oficina en',
-		address: 'Avenida Diagonal 449 (Barcelona)',
-		contactText: 'Escríbenos por',
-		whatsapp: 'WhatsApp',
-		or: 'o',
-		callUs: 'llámanos',
-		helpText: '. Estamos aquí para ayudarte',
-	},
-	CAT: {
-		title: 'El teu divorci notarial per 595€ per cònjuge',
-		subtitle: 'Ràpid, legal i sense complicacions',
-		description:
-			'A DivorciosBCN.com tramitem el teu divorci de mutu acord de forma',
-		agil: 'àgil',
-		profesional: 'professional',
-		legal: 'completament legal',
-		timeframe: ', amb signatura davant notari en menys de',
-		week: '1 setmana',
-		checkmarks: [
-			'Atenció personalitzada',
-			'Seguiment continu',
-			'Atenció personalitzada',
-			'Sense sorpreses: preu tancat',
-		],
-		discoverButton: 'Descobreix-nos',
-		officeLocation: 'Amb oficina a',
-		address: 'Avinguda Diagonal 449 (Barcelona)',
-		contactText: 'Escriu-nos per',
-		whatsapp: 'WhatsApp',
-		or: 'o',
-		callUs: "truca'ns",
-		helpText: '. Som aquí per ajudar-te',
-	},
+  ES: {
+    title: "SERRANO WHILE",
+    subtitle:
+      "Soluciones profesionales integrales para empresas, directivos y particulares. Consultoría, fiscalidad, procesos y estrategia",
+    text1:
+      "Unimos conocimiento técnico con comprensión estratégica del negocio",
+    text2:
+      "Te conectamos con profesionales expertos para brindarte soluciones a medida, según tus necesidades",
+    button: "Descúbrenos",
+  },
+  CAT: {
+    title: "SERRANO WHILE",
+    subtitle:
+      "Solucions professionals integrals per a empreses, directius i particulars. Consultoria, fiscalitat, processos i estratègia",
+    text1: "Unim coneixement tècnic amb comprensió estratègica del negoci",
+    text2:
+      "Et connectem amb professionals experts per oferir-te solucions a mida, segons les teves necessitats",
+    button: "Descobreix-nos",
+  },
 };
 
 export default function Home() {
-	const { language } = useContext(LanguageContext);
-	const t = translations[language as Language];
-	const router = useRouter();
+  const { language } = useContext(LanguageContext);
+  const t = translations[language as Language];
+  const router = useRouter();
 
-	return (
-		<div className='flex-1 max-w-[1000px] py-5 px-10 md:px-20 md:py-12 !pb-20 flex flex-col items-center text-center gap-12'>
-			<div className='flex flex-col gap-5'>
-				<h1>{t.title}</h1>
-				<h2>{t.subtitle}</h2>
-				<Separator />
-			</div>
-			<Image
-				alt='pic-divorce-1'
-				width={'435'}
-				height={'290'}
-				src={'/pexels-karolina-grabowska-7876038.jpg'}
-			/>
-			<div className='flex flex-col gap-12 items-center'>
-				<p className='max-w-[800px]'>
-					{t.description}
-					<span className='font-bold text-text-secondary'> {t.agil}</span>,
-					<span className='font-bold text-text-secondary'>
-						{' '}
-						{t.profesional}
-					</span>{' '}
-					{t.or}{' '}
-					<span className='font-bold text-text-secondary'> {t.legal}</span>
-					{t.timeframe}{' '}
-					<span className='font-bold text-text-secondary'> {t.week}</span>.
-				</p>
-				<div className='flex flex-col gap-2 items-start'>
-					{t.checkmarks.map((text, index) => (
-						<div className='flex items-center gap-2' key={index}>
-							<Check className='text-text-secondary' />
-							<p>{text}</p>
-						</div>
-					))}
-				</div>
-			</div>
-			<Button variant={'outline'} onClick={() => router.push('/equipo')}>
-				{t.discoverButton}
-			</Button>
-			<div className='flex flex-col items-start gap-5'>
-				<div className='flex text-left items-center gap-2'>
-					<MapPin className='text-text-secondary' />
-					<p>
-						{t.officeLocation}{' '}
-						<span className='font-bold text-text-secondary'> {t.address}</span>
-					</p>
-				</div>
-				<div className='flex text-left items-center gap-2'>
-					<Phone className='text-text-secondary' />
-					<p>
-						{t.contactText}{' '}
-						<span className='underline text-text-secondary'>{t.whatsapp}</span>{' '}
-						{t.or}{' '}
-						<span className='underline text-text-secondary'>{t.callUs}</span>
-						{t.helpText}
-					</p>
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <div className="flex-1 max-w-[1000px] py-5 px-10 md:py-12 !pb-20 flex flex-col items-center text-center gap-12">
+      <div className="flex flex-col gap-5">
+        <h1>{t.title}</h1>
+        <h3>{t.subtitle}</h3>
+      </div>
+      <div className="flex flex-col md:flex-row gap-5">
+        <Card className="h-[300px] w-[250px] sm:w-[350px] md:w-[320px] md:h-[300px] lg:w-[450px] lg:h-[400px] flex flex-col">
+          <Image
+            className="h-[230px] lg:h-[300px] md:h-[230px] object-cover"
+            src={"/graph.png"}
+            width={1000}
+            height={300}
+            alt={"graph"}
+          />
+          <div className="flex-1 flex items-center text-left px-5">
+            <p className="mt-2">{t.text1}</p>
+          </div>
+        </Card>
+        <Card className="h-[300px] w-[250px] sm:w-[350px] md:w-[320px] md:h-[300px] lg:w-[450px] lg:h-[400px] flex flex-col">
+          <Image
+            className="h-[230px] lg:h-[300px] md:h-[230px] object-cover"
+            src={"/review.png"}
+            width={1000}
+            height={300}
+            alt={"review"}
+          />
+          <div className="flex-1 flex items-center text-left px-5">
+            <p className="mt-2">{t.text2}</p>
+          </div>
+        </Card>
+      </div>
+      <Button variant="outline" onClick={() => router.push("/equipo")}>
+        {t.button}
+      </Button>
+    </div>
+  );
 }
