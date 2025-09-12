@@ -1,123 +1,172 @@
-'use client';
-import Image from 'next/image';
-import { useContext } from 'react';
-import { Language, LanguageContext } from '../comps/context';
-import { Separator } from '@/components/ui/separator';
+"use client";
+import { useContext } from "react";
+import { Language, LanguageContext } from "../comps/context";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const translations = {
-	ES: {
-		title: 'Servicio notarial de mutuo acuerdo',
-		subtitle: (
-			<h2>
-				Nos ocupamos de tramitar íntegramente tu{' '}
-				<span className='font-bold text-text-secondary'>
-					divorcio de mutuo acuerdo ante notario
-				</span>
-				, un proceso sencillo, rápido y sin necesidad de pasar por el juzgado.
-			</h2>
-		),
-		service1Title: (
-			<h2 className='text-text-secondary'>¿Qué incluye el servicio?</h2>
-		),
-		service1List: [
-			<p key={1}>Redacción del convenio regulador</p>,
-			<p key={2}>Revisión legal de la documentación</p>,
-			<p key={3}>Coordinación con la notaría</p>,
-			<p key={4}>Preparación para la firma</p>,
-			<p key={5}>Asesoramiento legal durante todo el proceso</p>,
-		],
-		service2Title: <h2 className='text-text-secondary'>Requisitos</h2>,
-		service2List: [
-			<p key={1}>Ambos cónyuges deben estar de acuerdo</p>,
-			<p key={2}>Sin hijos menores ni dependientes</p>,
-			<p key={3}>Al menos uno debe residir en España</p>,
-		],
-		priceTitle: <h2 className='text-text-secondary'>Precio cerrado</h2>,
-		priceDesc: <p className='font-bold'>595€ por cónyuge - Todo incluido</p>,
-	},
+  ES: {
+    title: "Nuestros servicios",
+    services: [
+      {
+        title: <h2>Trámites administrativos</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Solicitud de Certificado Digital</span>
+            <span>Presentación de impuestos para no residentes</span>
+            <span>
+              Gestión de Ley Beckham (Régimen fiscal aplicable a los
+              trabajadores desplazados a territorio español, art. 93 Ley
+              35/2006, de 28 de noviembre, del Impuesto sobre la Renta de las
+              Personas Físicas y otras normas tributarias.)
+            </span>
+            <span>
+              Asistencia en compraventa de inmuebles por No Residentes
+            </span>
+          </p>
+        ),
+      },
+      {
+        title: <h2>Fiscalidad y gestión de impuestos</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Asesoría y gestión de impuestos</span>
+            <span>Presentación de declaraciones y obligaciones</span>
+            <span>Regularización de situaciones fiscales complejas</span>
+          </p>
+        ),
+      },
+      {
+        title: <h2>Consultoría estratégica y de organización</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Consultoría estratégica y transformación de negocio</span>
+            <span>
+              Externalización de procesos (outsourcing de funciones internas)
+            </span>
+            <span>Planes de igualdad</span>
+            <span>Rediseño organizativo (estructura, perfiles, roles)</span>
+          </p>
+        ),
+      },
+      {
+        title: <h2>Empresa familiar y continuidad</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Planificación e implantación del cambio generacional</span>
+            <span>Organización y eficiencia en la estructura familiar</span>
+            <span>Acompañamiento en la continuidad del negocio</span>
+          </p>
+        ),
+      },
+      {
+        title: <h2>Asesoría legal y derecho empresarial</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Derecho mercantil, societario, civil y procesal</span>
+            <span>Planificación y reestructuración tributaria</span>
+            <span>Fusiones y adquisiciones (M&A)</span>
+            <span>Procedimientos tributarios</span>
+          </p>
+        ),
+      },
+    ],
+  },
 
-	CAT: {
-		title: 'Servei notarial de mutu acord',
-		subtitle: (
-			<h2>
-				Ens encarreguem de tramitar íntegrament el teu{' '}
-				<span className='font-bold text-text-secondary'>
-					divorci de mutu acord davant notari
-				</span>
-				, un procés senzill, ràpid i sense necessitat de passar pel jutjat.
-			</h2>
-		),
-		service1Title: (
-			<h2 className='text-text-secondary'>Què inclou el servei?</h2>
-		),
-		service1List: [
-			<>Redacció del conveni regulador</>,
-			<>Revisió legal de la documentació</>,
-			<>Coordinació amb la notaria</>,
-			<>Preparació per a la signatura</>,
-			<>Assessorament legal durant tot el procés</>,
-		],
-		service2Title: <h2 className='text-text-secondary'>Requisits</h2>,
-		service2List: [
-			<>Ambdós cònjuges han d’estar d’acord</>,
-			<>Sense fills menors ni dependents</>,
-			<>Almenys un ha de residir a Espanya</>,
-		],
-		priceTitle: <h2 className='text-text-secondary'>Preu tancat</h2>,
-		priceDesc: <p className='font-bold'>595€ per cònjuge - Tot inclòs</p>,
-	},
+  CAT: {
+    title: "Els nostres serveis",
+    services: [
+      {
+        title: <h2>Tràmits administratius</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Sol·licitud de Certificat Digital</span>
+            <span>Presentació d&apos;impostos per a no residents</span>
+            <span>
+              Gestió de la Llei Beckham (Règim fiscal aplicable als treballadors
+              desplaçats a territori espanyol, art. 93 Llei 35/2006, de 28 de
+              novembre, de l&apos;Impost sobre la Renda de les Persones Físiques
+              i altres normes tributàries.)
+            </span>
+            <span>
+              Assistència en compravenda d&apos;immobles per a No Residents
+            </span>
+          </p>
+        ),
+      },
+      {
+        title: <h2>Fiscalitat i gestió d&apos;impostos</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Assessorament i gestió d&apos;impostos</span>
+            <span>Presentació de declaracions i obligacions</span>
+            <span>Regularització de situacions fiscals complexes</span>
+          </p>
+        ),
+      },
+      {
+        title: <h2>Consultoria estratègica i d&apos;organització</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Consultoria estratègica i transformació de negoci</span>
+            <span>
+              Externalització de processos (outsourcing de funcions internes)
+            </span>
+            <span>Plans d&apos;igualtat</span>
+            <span>Redisseny organitzatiu (estructura, perfils, rols)</span>
+          </p>
+        ),
+      },
+      {
+        title: <h2>Empresa familiar i continuïtat</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Planificació i implantació del canvi generacional</span>
+            <span>Organització i eficiència en l&apos;estructura familiar</span>
+            <span>Acompanyament en la continuïtat del negoci</span>
+          </p>
+        ),
+      },
+      {
+        title: <h2>Assessoria legal i dret empresarial</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Dret mercantil, societari, civil i processal</span>
+            <span>Planificació i reestructuració tributària</span>
+            <span>Fusiones i adquisicions (M&A)</span>
+            <span>Procediments tributaris</span>
+          </p>
+        ),
+      },
+    ],
+  },
 };
 
 export default function Servicios() {
-	const { language } = useContext(LanguageContext);
-	const t = translations[language as Language];
+  const { language } = useContext(LanguageContext);
+  const t = translations[language as Language];
 
-	return (
-		<div className='flex-1 max-w-[1000px] p-5 px-10 md:px-20 md:pt-12 pb-20 flex flex-col items-center text-center gap-10 md:gap-15'>
-			<div className='flex flex-col gap-5'>
-				<h1>{t.title}</h1>
-			</div>
-			<div className='w-[100%] text-left'>{t.subtitle}</div>
-			<div className='flex gap-5 w-[100%]'>
-				<div className='flex w-[100%] flex-col gap-5 items-start'>
-					{t.service1Title}
-					<ul className='list-disc pl-5 text-left'>
-						{t.service1List.map((text, i) => (
-							<li key={i}>{text}</li>
-						))}
-					</ul>
-				</div>
-				<Image
-					alt='pic-divorce-1'
-					width={379}
-					height={253}
-					className='hidden md:flex h-[253px] w-[379px] object-cover flex-shrink-0'
-					src='/pexels-karolina-grabowska-7876035.jpg'
-				/>
-			</div>
-			<Separator />
-			<div className='flex gap-5 w-[100%]'>
-				<div className='flex w-[100%] flex-col gap-5 items-start'>
-					{t.service2Title}
-					<ul className='list-disc pl-5 text-left'>
-						{t.service2List.map((text, i) => (
-							<li key={i}>{text}</li>
-						))}
-					</ul>
-				</div>
-				<Image
-					alt='pic-divorce-2'
-					width={379}
-					height={253}
-					className='hidden md:flex h-[253px] w-[379px] object-cover flex-shrink-0'
-					src='/pexels-karolina-grabowska-7876036.jpg'
-				/>
-			</div>
-			<Separator />
-			<div className='flex flex-col gap-5 items-start w-[100%]'>
-				{t.priceTitle}
-				<div className='flex gap-2'>{t.priceDesc}</div>
-			</div>
-		</div>
-	);
+  return (
+    <div className="flex-1 max-w-[1000px] w-full p-5 px-10 md:px-20 md:pt-12 pb-20 flex flex-col items-center text-center gap-10 md:gap-15">
+      <div className="flex flex-col gap-5">
+        <h1>{t.title}</h1>
+      </div>
+      <Accordion type="multiple" className="w-full gap-5">
+        {t.services.map((service, index) => (
+          <AccordionItem key={index} value={`item-${index}`}>
+            <AccordionTrigger className="w-full text-left py-3 px-5 rounded-md">
+              {service.title}
+            </AccordionTrigger>
+            <AccordionContent className="py-3 px-5 flex">
+              {service.desc}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
+  );
 }
