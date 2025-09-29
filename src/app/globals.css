@@ -130,6 +130,10 @@ h3 {
 	@apply text-[16px] md:text-[20px] font-[500] text-black;
 }
 
+.shadow-bottom {
+	box-shadow: 0 8px 8px -6px rgba(0, 0, 0, 0.1); /* only bottom shadow */
+}
+
 @layer base {
 	* {
 		@apply border-border outline-ring/50;

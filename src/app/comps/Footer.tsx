@@ -120,7 +120,106 @@ const translations = {
     },
     privacy: {
       title: "Política de privacidad",
-      desc: "",
+      desc: (
+        <ol className="flex flex-col gap-2 list-decimal pl-5">
+          <li>
+            <strong>Responsable del tratamiento</strong>
+            <br />
+            En cumplimiento del Reglamento (UE) 2016/679, del Parlamento Europeo
+            y del Consejo, de 27 de abril de 2016 (RGPD), y de la Ley Orgánica
+            3/2018, de 5 de diciembre (LOPDGDD), se informa al usuario de que los
+            datos personales que facilite a través de este sitio web serán
+            tratados por:
+            <ul className="list-disc pl-5">
+              <li>Titular: DURAN SERRANO PARTNERS, S.L.</li>
+              <li>NIF/CIF: B21781406</li>
+              <li>
+                Domicilio social: Av. Diagonal 449 4ª Planta 08036 Barcelona
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Finalidad del tratamiento</strong>
+            <br />
+            Los datos personales proporcionados por los usuarios serán utilizados
+            con las siguientes finalidades:
+            <ul className="list-disc pl-5">
+              <li>
+                Gestionar y prestar los servicios de consultoría ofrecidos por
+                SERRANO WHILE.
+              </li>
+              <li>
+                Atender solicitudes de información, contacto o presupuesto.
+              </li>
+              <li>
+                Cumplir con las obligaciones legales aplicables al responsable
+                del tratamiento.
+              </li>
+            </ul>
+            No se realizarán tratamientos automatizados de datos con fines de
+            elaboración de perfiles.
+          </li>
+
+          <li>
+            <strong>Legitimación</strong>
+            <br />
+            La base legal para el tratamiento de sus datos es el consentimiento
+            que usted otorga al enviar un formulario o contactar por cualquier
+            vía, así como la ejecución de un contrato en caso de que contrate
+            nuestros servicios.
+          </li>
+
+          <li>
+            <strong>Conservación de los datos</strong>
+            <br />
+            Los datos se conservarán durante el tiempo necesario para cumplir
+            con la finalidad para la que se recaban y para determinar las
+            posibles responsabilidades que se pudieran derivar de dicha
+            finalidad y del tratamiento de los datos.
+          </li>
+
+          <li>
+            <strong>Destinatarios</strong>
+            <br />
+            No se cederán datos a terceros, salvo obligación legal.
+            <br />
+            Tampoco se realizarán transferencias internacionales de datos.
+          </li>
+
+          <li>
+            <strong>Derechos de los usuarios</strong>
+            <br />
+            El usuario puede ejercer en cualquier momento los siguientes
+            derechos en relación con sus datos personales:
+            <ul className="list-disc pl-5">
+              <li>Derecho de acceso</li>
+              <li>Derecho de rectificación</li>
+              <li>Derecho de supresión</li>
+              <li>Derecho de limitación del tratamiento</li>
+              <li>Derecho de oposición</li>
+              <li>Derecho a la portabilidad de los datos</li>
+              <li>Derecho a retirar el consentimiento en cualquier momento</li>
+            </ul>
+            Para ejercer estos derechos, puede enviar una solicitud expresa,
+            junto con una copia de su DNI o documento equivalente, a través del
+            correo electrónico: [email de contacto].
+            <br />
+            <br />
+            Asimismo, tiene derecho a presentar una reclamación ante la Agencia
+            Española de Protección de Datos (www.aepd.es) si considera que se ha
+            vulnerado alguno de sus derechos.
+          </li>
+
+          <li>
+            <strong>Seguridad</strong>
+            <br />
+            SERRANO WHILE aplica las medidas técnicas y organizativas necesarias
+            para garantizar la seguridad, integridad y confidencialidad de los
+            datos conforme a la legislación vigente.
+          </li>
+        </ol>
+      ),
     },
   },
 
@@ -238,7 +337,106 @@ const translations = {
     },
     privacy: {
       title: "Política de privacitat",
-      desc: "",
+      desc: (
+        <ol className="flex flex-col gap-2 list-decimal pl-5">
+          <li>
+            <strong>Responsable del tractament</strong>
+            <br />
+            En compliment del Reglament (UE) 2016/679, del Parlament Europeu
+            i del Consell, de 27 d&apos;abril de 2016 (RGPD), i de la Llei
+            Orgànica 3/2018, de 5 de desembre (LOPDGDD), s&apos;informa a
+            l&apos;usuari que les dades personals que faciliti a través
+            d&apos;aquest lloc web seran tractades per:
+            <ul className="list-disc pl-5">
+              <li>Titular: DURAN SERRANO PARTNERS, S.L.</li>
+              <li>NIF/CIF: B21781406</li>
+              <li>
+                Domicili social: Av. Diagonal 449 4a Planta 08036 Barcelona
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Finalitat del tractament</strong>
+            <br />
+            Les dades personals proporcionades pels usuaris seran utilitzades
+            amb les següents finalitats:
+            <ul className="list-disc pl-5">
+              <li>
+                Gestionar i prestar els serveis de consultoria oferts per
+                SERRANO WHILE.
+              </li>
+              <li>
+                Atendre sol·licituds d&apos;informació, contacte o pressupost.
+              </li>
+              <li>
+                Complir amb les obligacions legals aplicables al responsable
+                del tractament.
+              </li>
+            </ul>
+            No es realitzaran tractaments automatitzats de dades amb finalitats
+            d&apos;elaboració de perfils.
+          </li>
+
+          <li>
+            <strong>Legitimació</strong>
+            <br />
+            La base legal per al tractament de les seves dades és el consentiment
+            que vostè atorga en enviar un formulari o contactar per qualsevol
+            via, així com l&apos;execució d&apos;un contracte en cas que
+            contracti els nostres serveis.
+          </li>
+
+          <li>
+            <strong>Conservació de les dades</strong>
+            <br />
+            Les dades es conservaran durant el temps necessari per complir
+            amb la finalitat per a la qual es recullen i per determinar les
+            possibles responsabilitats que es poguessin derivar d&apos;aquesta
+            finalitat i del tractament de les dades.
+          </li>
+
+          <li>
+            <strong>Destinataris</strong>
+            <br />
+            No es cediran dades a tercers, llevat d&apos;obligació legal.
+            <br />
+            Tampoc es realitzaran transferències internacionals de dades.
+          </li>
+
+          <li>
+            <strong>Drets dels usuaris</strong>
+            <br />
+            L&apos;usuari pot exercir en qualsevol moment els següents
+            drets en relació amb les seves dades personals:
+            <ul className="list-disc pl-5">
+              <li>Dret d&apos;accés</li>
+              <li>Dret de rectificació</li>
+              <li>Dret de supressió</li>
+              <li>Dret de limitació del tractament</li>
+              <li>Dret d&apos;oposició</li>
+              <li>Dret a la portabilitat de les dades</li>
+              <li>Dret a retirar el consentiment en qualsevol moment</li>
+            </ul>
+            Per exercir aquests drets, pot enviar una sol·licitud expressa,
+            juntament amb una còpia del seu DNI o document equivalent, a través
+            del correu electrònic: [email de contacte].
+            <br />
+            <br />
+            Així mateix, té dret a presentar una reclamació davant l&apos;Agència
+            Espanyola de Protecció de Dades (www.aepd.es) si considera que s&apos;ha
+            vulnerat algun dels seus drets.
+          </li>
+
+          <li>
+            <strong>Seguretat</strong>
+            <br />
+            SERRANO WHILE aplica les mesures tècniques i organitzatives necessàries
+            per garantir la seguretat, integritat i confidencialitat de les
+            dades conforme a la legislació vigent.
+          </li>
+        </ol>
+      ),
     },
   },
 
@@ -353,7 +551,101 @@ const translations = {
     },
     privacy: {
       title: "Privacy Policy",
-      desc: "",
+      desc: (
+        <ol className="flex flex-col gap-2 list-decimal pl-5">
+          <li>
+            <strong>Data Controller</strong>
+            <br />
+            In compliance with Regulation (EU) 2016/679, of the European Parliament
+            and of the Council, of 27 April 2016 (GDPR), and Organic Law 3/2018,
+            of 5 December (LOPDGDD), the user is informed that the personal data
+            provided through this website will be processed by:
+            <ul className="list-disc pl-5">
+              <li>Owner: DURAN SERRANO PARTNERS, S.L.</li>
+              <li>Tax ID/CIF: B21781406</li>
+              <li>
+                Registered Address: Av. Diagonal 449 4th Floor 08036 Barcelona
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <strong>Purpose of Processing</strong>
+            <br />
+            The personal data provided by users will be used for the following
+            purposes:
+            <ul className="list-disc pl-5">
+              <li>
+                Manage and provide consulting services offered by SERRANO WHILE.
+              </li>
+              <li>
+                Handle requests for information, contact or quotes.
+              </li>
+              <li>
+                Comply with legal obligations applicable to the data controller.
+              </li>
+            </ul>
+            No automated data processing will be performed for profiling purposes.
+          </li>
+
+          <li>
+            <strong>Legal Basis</strong>
+            <br />
+            The legal basis for processing your data is the consent you provide
+            when submitting a form or contacting us by any means, as well as
+            the execution of a contract if you hire our services.
+          </li>
+
+          <li>
+            <strong>Data Retention</strong>
+            <br />
+            Data will be retained for the time necessary to fulfill the purpose
+            for which it is collected and to determine any liabilities that may
+            arise from such purpose and from data processing.
+          </li>
+
+          <li>
+            <strong>Recipients</strong>
+            <br />
+            Data will not be transferred to third parties, except by legal
+            obligation.
+            <br />
+            International data transfers will not be made either.
+          </li>
+
+          <li>
+            <strong>User Rights</strong>
+            <br />
+            Users may exercise the following rights regarding their personal
+            data at any time:
+            <ul className="list-disc pl-5">
+              <li>Right of access</li>
+              <li>Right of rectification</li>
+              <li>Right of erasure</li>
+              <li>Right to restriction of processing</li>
+              <li>Right to object</li>
+              <li>Right to data portability</li>
+              <li>Right to withdraw consent at any time</li>
+            </ul>
+            To exercise these rights, you may send an express request, together
+            with a copy of your ID or equivalent document, via email to:
+            [contact email].
+            <br />
+            <br />
+            You also have the right to file a complaint with the Spanish Data
+            Protection Agency (www.aepd.es) if you consider that any of your
+            rights have been violated.
+          </li>
+
+          <li>
+            <strong>Security</strong>
+            <br />
+            SERRANO WHILE applies the necessary technical and organizational
+            measures to ensure the security, integrity and confidentiality of
+            data in accordance with current legislation.
+          </li>
+        </ol>
+      ),
     },
   },
 };

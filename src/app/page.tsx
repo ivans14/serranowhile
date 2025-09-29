@@ -46,7 +46,7 @@ export default function Home() {
 	return (
 		<div className='flex-1 w-full'>
 			{/* Hero Section */}
-			<div className=' py-20 px-6'>
+			<div className=' py-20 px-6 shadow-bottom z-10 relative'>
 				<div className='max-w-4xl mx-auto text-center'>
 					<h1 className='text-5xl md:text-7xl font-bold mb-8 bg-clip-text'>
 						{t.title}
@@ -54,7 +54,11 @@ export default function Home() {
 					<h3 className='mb-12 leading-relaxed max-w-3xl mx-auto'>
 						{t.subtitle}
 					</h3>
-					<Button size='lg' onClick={() => router.push('/equipo')}>
+					<Button
+						variant='outline'
+						size='lg'
+						onClick={() => router.push('/equipo')}
+					>
 						{t.button}
 					</Button>
 				</div>
@@ -151,7 +155,7 @@ export default function Home() {
 			</div>
 
 			{/* Call to Action */}
-			<div className='space-y-7 py-16 px-6 text-center'>
+			<div className='space-y-7 py-25 px-6 text-center'>
 				<div className='max-w-2xl mx-auto space-y-5'>
 					<h2>
 						{language === 'ENG'
