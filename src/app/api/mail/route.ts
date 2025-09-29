@@ -34,20 +34,25 @@ export async function POST(request: NextRequest) {
 
 		// Email content based on language
 		const isSpanish = language === 'ES';
+		const isEnglish = language === 'EN';
 		const subject = 'Nuevo mensaje de contacto - Serrano While';
 
 		const emailContent = `
-			Nuevo mensaje de contacto - Serrano While
+		<html>
+			<body style="font-family: Arial, sans-serif; line-height: 1.5;">
+			<h2>Nuevo mensaje de contacto - Serrano While</h2>
 
-			Datos del contacto:
-			Nombre: ${name}
-			Apellidos: ${surname}
-			Email: ${email}
-			${phone ? `Teléfono: ${phone}` : ''}
+			<h3>Datos del contacto:</h3>
+			<p><strong>Nombre:</strong> ${name}</p>
+			<p><strong>Apellidos:</strong> ${surname}</p>
+			<p><strong>Email:</strong> ${email}</p>
+			${phone ? `<p><strong>Teléfono:</strong> ${phone}</p>` : ''}
 
-			Mensaje:
-			${message}
-			`;
+			<h3>Mensaje:</h3>
+			<p>${message}</p>
+			</body>
+		</html>
+		`;
 
 		// Send email to company
 		await transporter.sendMail({
@@ -61,6 +66,8 @@ export async function POST(request: NextRequest) {
 		// Send confirmation email to user
 		const userSubject = isSpanish
 			? 'Confirmación de mensaje recibido - Serrano While'
+			: isEnglish
+			? 'Message confirmation received - Serrano While'
 			: 'Confirmació de missatge rebut - Serrano While';
 
 		const userHtmlContent = `
@@ -69,35 +76,57 @@ export async function POST(request: NextRequest) {
           ${
 						isSpanish
 							? 'Mensaje recibido correctamente'
+							: isEnglish
+							? 'Message received successfully'
 							: 'Missatge rebut correctament'
 					}
         </h2>
         
         <p style="line-height: 1.6; color: #333;">
-         "Hola ${name},"
+         ${
+						isSpanish
+							? `"Hola ${name},"`
+							: isEnglish
+							? `"Hello ${name},"`
+							: `"Hola ${name},"`
+					}
         </p>
         
         <p style="line-height: 1.6; color: #333;">
           ${
 						isSpanish
 							? 'Gracias por ponerte en contacto con nosotros. Hemos recibido tu mensaje y nos pondremos en contacto contigo lo antes posible.'
+							: isEnglish
+							? 'Thank you for contacting us. We have received your message and will get back to you as soon as possible.'
 							: 'Gràcies per posar-te en contacte amb nosaltres. Hem rebut el teu missatge i ens posarem en contacte amb tu el més aviat possible.'
 					}
         </p>
 
         <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
           <h3 style="color: #0a335c; margin-top: 0;">
-            ${isSpanish ? 'Resumen de tu mensaje:' : 'Resum del teu missatge:'}
+            ${
+							isSpanish
+								? 'Resumen de tu mensaje:'
+								: isEnglish
+								? 'Summary of your message:'
+								: 'Resum del teu missatge:'
+						}
           </h3>
           <p style="line-height: 1.6; color: #333; white-space: pre-wrap;">${message}</p>
         </div>
 
         <div style="margin-top: 30px; padding: 20px; background-color: #1466b8; color: white; border-radius: 8px; text-align: center;">
           <h3 style="margin-top: 0; color: white;">
-            ${isSpanish ? 'Información de contacto' : 'Informació de contacte'}
+            ${
+							isSpanish
+								? 'Información de contacto'
+								: isEnglish
+								? 'Contact information'
+								: 'Informació de contacte'
+						}
           </h3>
-          <p style="margin: 5px 0;">📧 xxx@gmail.com</p>
-          <p style="margin: 5px 0;">📞 6XX XXX XXX</p>
+          <p style="margin: 5px 0;">📧 info@serranowhile.com</p>
+          <p style="margin: 5px 0;">📞 684 48 80 17</p>
           <p style="margin: 5px 0;">📍 Avenida Diagonal 449, Barcelona</p>
         </div>
 
@@ -105,6 +134,8 @@ export async function POST(request: NextRequest) {
           <p>${
 						isSpanish
 							? 'Este es un mensaje automático, por favor no respondas a este email.'
+							: isEnglish
+							? 'This is an automatic message, please do not reply to this email.'
 							: 'Aquest és un missatge automàtic, si us plau no responguis a aquest email.'
 					}</p>
         </div>
