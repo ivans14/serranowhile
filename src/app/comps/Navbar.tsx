@@ -22,15 +22,16 @@ const translations = {
     equipo: "Quiénes somos",
     servicios: "Servicios",
     contacto: "Contacto",
-    espanol: "Español",
-    catala: "Català",
   },
   CAT: {
     equipo: "Qui som",
     servicios: "Serveis",
     contacto: "Contacte",
-    espanol: "Espanyol",
-    catala: "Català",
+  },
+  ENG: {
+    equipo: "Who we are",
+    servicios: "Services",
+    contacto: "Contact",
   },
 };
 
@@ -53,7 +54,6 @@ function Navbar() {
         <Link href="/servicios">
           {translations[language as Language].servicios}
         </Link>
-        `
         <Button onClick={() => router.push("contact")}>
           {translations[language as Language].contacto}
         </Button>
@@ -75,6 +75,12 @@ function Navbar() {
                   className={language == "CAT" ? "bg-accent" : ""}
                 >
                   Català
+                </NavigationMenuLink>
+                <NavigationMenuLink
+                  onClick={() => setLanguage("ENG")}
+                  className={language == "ENG" ? "bg-accent" : ""}
+                >
+                  English
                 </NavigationMenuLink>
               </NavigationMenuContent>
             </NavigationMenuItem>

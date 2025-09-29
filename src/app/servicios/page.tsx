@@ -144,6 +144,73 @@ const translations = {
       },
     ],
   },
+  ENG: {
+    title: <h1>Our Services</h1>,
+    services: [
+      {
+        title: <h2>Administrative Procedures</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Application for Digital Certificate</span>
+            <span>Submission of taxes for non-residents</span>
+            <span>
+              Management of the Beckham Law (Tax regime applicable to workers
+              displaced to Spanish territory, art. 93 Law 35/2006, of November
+              28, on Personal Income Tax and other tax regulations.)
+            </span>
+            <span>
+              Assistance in the purchase and sale of properties for
+              Non-Residents
+            </span>
+          </p>
+        ),
+      },
+      {
+        title: <h2>Taxation and Tax Management</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Tax advice and management</span>
+            <span>Filing of tax returns and obligations</span>
+            <span>Regularization of complex tax situations</span>
+          </p>
+        ),
+      },
+      {
+        title: <h2>Strategic and Organizational Consulting</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Strategic consulting and business transformation</span>
+            <span>
+              Outsourcing of processes (outsourcing of internal functions)
+            </span>
+            <span>Equality plans</span>
+            <span>Organizational redesign (structure, profiles, roles)</span>
+          </p>
+        ),
+      },
+      {
+        title: <h2>Family Business and Continuity</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Planning and implementation of generational change</span>
+            <span>Organization and efficiency in the family structure</span>
+            <span>Support in business continuity</span>
+          </p>
+        ),
+      },
+      {
+        title: <h2>Legal Advice and Business Law</h2>,
+        desc: (
+          <p className="flex flex-col text-left gap-5">
+            <span>Commercial, corporate, civil, and procedural law</span>
+            <span>Tax planning and restructuring</span>
+            <span>Mergers and acquisitions (M&A)</span>
+            <span>Tax procedures</span>
+          </p>
+        ),
+      },
+    ],
+  },
 };
 
 export default function Servicios() {

@@ -13,15 +13,15 @@ import { LanguageContext, Language } from "./context";
 // Menu items.
 const items = [
   {
-    title: { ES: "Quiénes somos", CAT: "Qui som" },
+    title: { ES: "Quiénes somos", CAT: "Qui som", ENG: "Who we are" },
     url: "/Quiénes somos",
   },
   {
-    title: { ES: "Servicios", CAT: "Serveis" },
+    title: { ES: "Servicios", CAT: "Serveis", ENG: "Services" },
     url: "/servicios",
   },
   {
-    title: { ES: "Contacto", CAT: "Contacte" },
+    title: { ES: "Contacto", CAT: "Contacte", ENG: "Contact" },
     url: "/contact",
   },
 ];

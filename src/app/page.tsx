@@ -26,6 +26,16 @@ const translations = {
       "Et connectem amb professionals experts per oferir-te solucions a mida, segons les teves necessitats",
     button: "Descobreix-nos",
   },
+  ENG: {
+    title: "SERRANO WHILE",
+    subtitle:
+      "Comprehensive professional solutions for companies, executives, and individuals. Consulting, taxation, processes, and strategy",
+    text1:
+      "We combine technical knowledge with strategic business understanding",
+    text2:
+      "We connect you with expert professionals to provide tailored solutions based on your needs",
+    button: "Discover us",
+  },
 };
 
 export default function Home() {

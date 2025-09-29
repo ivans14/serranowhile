@@ -135,6 +135,66 @@ const translations = {
     ),
     submitButton: "Enviar",
   },
+  ENG: {
+    details: {
+      title: (
+        <h2 className="text-text-secondary w-full text-center md:text-left">
+          Contact Details
+        </h2>
+      ),
+      phone: (
+        <div className="flex gap-2  md:justify-start">
+          <Phone />
+          <p>(+34) 684 48 80 17</p>
+        </div>
+      ),
+      whatsapp: (
+        <div className="flex gap-2  md:justify-start">
+          <WhatsApp />
+          <p>(+34) 684 48 80 17</p>
+        </div>
+      ),
+      email: (
+        <div className="flex gap-2  md:justify-start">
+          <Mail />
+          <p>info@serranowhile.com</p>
+        </div>
+      ),
+      location: (
+        <div className="flex gap-2  md:justify-start">
+          <MapPin />
+          <p className="text-left">Avenida Diagonal 449, Barcelona</p>
+        </div>
+      ),
+    },
+    formTitle: (
+      <h2 className="text-text-secondary text-center md:text-left">
+        Write to us
+      </h2>
+    ),
+    formDesc: (
+      <p className="text-left">
+        Fill out the following form and we will contact you as soon as possible
+      </p>
+    ),
+    formParams: [
+      { id: "name", name: "Name" },
+      { id: "surname", name: "Surname" },
+      { id: "email", name: "Email" },
+      { id: "phone", name: "Phone" },
+    ],
+    message: "Message",
+    check: (
+      <p className="text-sm">
+        I have read and accept the{" "}
+        <span className="underline hover:cursor-pointer text-primary">
+          Privacy Policy
+        </span>{" "}
+        of Serrano While.
+      </p>
+    ),
+    submitButton: "Send",
+  },
 };
 
 export default function Contacto() {

@@ -70,6 +70,42 @@ const translations = {
       </span>
     ),
   },
+  ENG: {
+    title: "Who are we?",
+    subtitle: (
+      <span>
+        <span className="font-bold text-text-secondary">Serrano While</span> is
+        a boutique firm made up of a network of multidisciplinary professionals,
+        experts in different key areas of the business and legal world.
+      </span>
+    ),
+    description: (
+      <span>
+        Thanks to this diversity, we offer a
+        <span className="text-text-secondary">
+          {" "}
+          comprehensive and cross-cutting
+        </span>
+        approach, providing tailored solutions for each client from a{" "}
+        <span className="text-text-secondary">
+          holistic view of the business
+        </span>{" "}
+        .
+      </span>
+    ),
+    button: "Our Services",
+    officeLocation: (
+      <span>
+        Located at{" "}
+        <span className="font-bold text-text-secondary">
+          Avenida Diagonal 449 (Barcelona)
+        </span>
+        , we operate both locally and nationally, with the capacity to support
+        companies, executives, and individuals in their strategic, tax, and
+        organizational decisions.
+      </span>
+    ),
+  },
 };
 
 export default function Equipo() {
