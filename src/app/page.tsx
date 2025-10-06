@@ -44,9 +44,9 @@ export default function Home() {
 	const router = useRouter();
 
 	return (
-		<div className='flex-1 w-full'>
+		<div className='flex-1 w-full max-w-[2000px]'>
 			{/* Hero Section */}
-			<div className=' py-20 px-6 shadow-bottom z-10 relative'>
+			<div className=' py-30 pb-40 px-6 shadow-bottom z-10 relative'>
 				<div className='max-w-4xl mx-auto text-center'>
 					<h1 className='text-5xl md:text-7xl font-bold mb-8 bg-clip-text'>
 						{t.title}

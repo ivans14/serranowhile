@@ -23,7 +23,7 @@ import {
 const items = [
 	{
 		title: { ES: 'Quiénes somos', CAT: 'Qui som', ENG: 'Who we are' },
-		url: '/Quiénes somos',
+		url: '/equipo',
 	},
 	{
 		title: { ES: 'Servicios', CAT: 'Serveis', ENG: 'Services' },
