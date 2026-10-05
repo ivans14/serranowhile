@@ -48,8 +48,6 @@ const translations = {
             <span>
               Externalización de procesos (outsourcing de funciones internas)
             </span>
-            <span>Planes de igualdad</span>
-            <span>Rediseño organizativo (estructura, perfiles, roles)</span>
           </p>
         ),
       },
@@ -116,8 +114,6 @@ const translations = {
             <span>
               Externalització de processos (outsourcing de funcions internes)
             </span>
-            <span>Plans d&apos;igualtat</span>
-            <span>Redisseny organitzatiu (estructura, perfils, rols)</span>
           </p>
         ),
       },
@@ -183,8 +179,6 @@ const translations = {
             <span>
               Outsourcing of processes (outsourcing of internal functions)
             </span>
-            <span>Equality plans</span>
-            <span>Organizational redesign (structure, profiles, roles)</span>
           </p>
         ),
       },

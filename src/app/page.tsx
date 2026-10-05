@@ -10,7 +10,7 @@ const translations = {
 	ES: {
 		title: 'SERRANO WHILE',
 		subtitle:
-			'Soluciones profesionales integrales para empresas, directivos y particulares. Consultoría, fiscalidad, procesos y estrategia',
+			'Fiscalidad, consultoría y gestoría administrativa',
 		text1:
 			'Unimos conocimiento técnico con comprensión estratégica del negocio',
 		text2:
@@ -20,7 +20,7 @@ const translations = {
 	CAT: {
 		title: 'SERRANO WHILE',
 		subtitle:
-			'Solucions professionals integrals per a empreses, directius i particulars. Consultoria, fiscalitat, processos i estratègia',
+			'Fiscalitat, consultoria i gestoria administrativa',
 		text1: 'Unim coneixement tècnic amb comprensió estratègica del negoci',
 		text2:
 			'Et connectem amb professionals experts per oferir-te solucions a mida, segons les teves necessitats',
@@ -29,7 +29,7 @@ const translations = {
 	ENG: {
 		title: 'SERRANO WHILE',
 		subtitle:
-			'Comprehensive professional solutions for companies, executives, and individuals. Consulting, taxation, processes, and strategy',
+			'Taxation, consulting and administrative services',
 		text1:
 			'We combine technical knowledge with strategic business understanding',
 		text2:

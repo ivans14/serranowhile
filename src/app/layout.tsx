@@ -8,7 +8,7 @@ import { Analytics } from '@vercel/analytics/next';
 export const metadata: Metadata = {
 	title: 'Serrano While',
 	description:
-		'Soluciones profesionales integrales para empresas, directivos y particulares. Consultoría, fiscalidad, procesos y estrategia',
+		'Fiscalidad, consultoría y gestoría administrativa',
 };
 
 export default function RootLayout({
